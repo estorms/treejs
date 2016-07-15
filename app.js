@@ -1,33 +1,70 @@
-// Create a tree function that should build a pine tree out of a character in the Chrome dev tools console. It accepts a single object as an argument. The object should have two key/value pairs.
+//YOU WILL NEED TO USE REPEAT METHOD ON STRING
+//BE SURE TO CONVERT CHAR INTO STRING
 
-// A key that specifies the height of the pine tree.
-// The value for the height of the tree should be from user input in a <input type="text"> field in the DOM.
-// A key that specifies which character to use to build the pine tree.
-// The character to use should be from user input in a <input type="text"> field in the DOM.
-// Once the user enters in a number, and a character, the user can either then just press the enter key (as long as the cursor is in one of the input fields), or click a button that is labeled "Grow your tree" and the tree should be shown in the console. This requires you to add an event listener to the button, as well as an event listener for the enter/return key.
-
-// If either of the input fields does not have a value in it when the user presses the enter key, or presses the button, then display an alert stating that both fields must have a value.
-
-// Grow your tree
-
-// Example
-
-// Here's what the pine tree should look like when you specify a height of 7, and use the asterisk character.
+//Initialize object
 
 var tree = {}
 
-var char = document.getElementById("character");
+//Capture user input to populate object
+
+
+var char = document.getElementById('character');
 char.addEventListener('input', function(event) {
    tree.branches = char.value;
 })
 
-var num = document.getElementById("height");
+var num = document.getElementById('height');
 num.addEventListener('input', function(event){
     tree.height = Number(num.value);
 })
 
-var growButt = document.getElementById("growButton");
-growButt.addEventListener('click', function(event) {console.log(tree)})
+//Initialize function on button click
+
+var growButt = document.getElementById('growButton');
+growButt.addEventListener('click', function(event) {
+    if (num.value != '' && char.value != '') {
+        console.log(growTree(tree));
+        // console.log('working');
+    }
+    else {
+      alert('You need a value in both fields, dummy');
+    }})
+
+//Initialize function on keypress,
+
+char.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13 && char.value != '' && num.value !='') {
+        console.log(growTree(tree));
+        // console.log('working');
+    }
+    else if (event.keyCode === 13) {
+    alert('You need a value in both fields, dummy');
+    }
+})
+
+//
+
+num.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13 && char.value != '' && num.value !='') {
+        growTree(tree);
+        // console.log('poo');
+    }
+    else if (event.keyCode === 13) {
+    alert('You need a value in both fields, dummy');
+    }
+})
+
+function growTree(arg) {
+    var output = '';
+    for (var i = 0; i < tree.height; i++) {
+        output += tree.branches;
+    }
+    return output;
+}
+
+
+
+
 // console.log();
 // var submitButton = document.getElementById("submit");
 
@@ -50,7 +87,7 @@ growButt.addEventListener('click', function(event) {console.log(tree)})
 
 // // for (var i = 0; i < 9; i++) {
 // //     userTree.character += i;
-// // } 
+// // }
 
 
 
