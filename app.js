@@ -64,20 +64,34 @@ num.addEventListener('keypress', function(event) {
 //     }
 //  }
 
-function growTree(tree) {
-    var output = '';
-    var outputArranged = '';
-    for (var i = 0; i < tree.height; i++) {
-    outputArranged = output += tree.leaf;
-    console.log(' '.repeat(tree.height - (i / 2)) + outputArranged);
-   //console.log(' '.repeat(parseFloat((tree.height - (i / 2))))  + outputArranged)  need an if/else based on modulo of height/2;
-    }
- }
+// function growTree(tree) {
+//     var output = '';
+//     var outputArranged = '';
+//     for (var i = 0; i < tree.height; i++) {
+//     outputArranged = output += tree.leaf;
+//     console.log(' '.repeat(tree.height - (i / 2)) + outputArranged);
+//    //console.log(' '.repeat(parseFloat((tree.height - (i / 2))))  + outputArranged)  need an if/else based on modulo of height/2;
+//     }
+//  }
 
 // growTree(tree);
 
 //how to write the above fn so it doesn't use a parameter that's already specific to an argument?
 
+ function growTree(tree) {
+    var output = '';
+    // var outputArranged = ' '
+
+    for (var i = 0; i < tree.height; i++) {
+        if (i !== 0) {
+    output += tree.leaf + tree.leaf;
+        }
+        else {
+            output += tree.leaf;
+        }
+    console.log(' '.repeat(tree.height - (i / 2))  + output)  ;
+    }
+ }
 
 
 
