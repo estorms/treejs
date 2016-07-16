@@ -1,16 +1,20 @@
 //YOU WILL NEED TO USE REPEAT METHOD ON STRING
 //BE SURE TO CONVERT CHAR INTO STRING
+//USE TERNARY
+//CONDENSE EVENT LISTENERS
+
 
 //Initialize object
 
 var tree = {}
+
 
 //Capture user input to populate object
 
 
 var char = document.getElementById('character');
 char.addEventListener('input', function(event) {
-   tree.branches = char.value;
+   tree.leaf = char.value;
 })
 
 var num = document.getElementById('height');
@@ -23,26 +27,23 @@ num.addEventListener('input', function(event){
 var growButt = document.getElementById('growButton');
 growButt.addEventListener('click', function(event) {
     if (num.value != '' && char.value != '') {
-        console.log(growTree(tree));
-        // console.log('working');
+        growTree(tree);
     }
     else {
       alert('You need a value in both fields, dummy');
     }})
 
-//Initialize function on keypress,
+//Initialize function on keypress, only while pointer remains in one of the two input fields
 
 char.addEventListener('keypress', function(event) {
     if (event.keyCode === 13 && char.value != '' && num.value !='') {
-        console.log(growTree(tree));
+        // console.log(growTree(tree));
         // console.log('working');
     }
     else if (event.keyCode === 13) {
     alert('You need a value in both fields, dummy');
     }
 })
-
-//
 
 num.addEventListener('keypress', function(event) {
     if (event.keyCode === 13 && char.value != '' && num.value !='') {
@@ -54,41 +55,20 @@ num.addEventListener('keypress', function(event) {
     }
 })
 
-function growTree(arg) {
+//Grow the Tree
+
+function growTree(tree) {
     var output = '';
     for (var i = 0; i < tree.height; i++) {
-        output += tree.branches;
+        console.log(output += tree.leaf);
     }
-    return output;
-}
+ }
+
+
+
+//how to write the above fn so it doesn't use a parameter that's already specific to an argument?
 
 
 
 
-// console.log();
-// var submitButton = document.getElementById("submit");
 
-// submitButton.addEventListener('click', function(evt){
-//     alert("Fuck this!");
-
-
-// })
-
-// var userTree = {};
-// userTree.character = '';
-// userTree.height = ''
-
-// var character = document.getElementById("character");
-// userTree.character = character.value;
-// console.log(userTree.character);
-
-// character.addEventListener('', function(evt) {
-//     // console.log("big steps kitten");
-
-// // for (var i = 0; i < 9; i++) {
-// //     userTree.character += i;
-// // }
-
-
-
-// console.log(userTree.character);
